@@ -26,9 +26,9 @@
 })();
 
 function initMap() {
-  var casa = {lat: -19.8964784, lng: -43.9383671};
+  var casa = {lat: -19.8745702, lng: -43.9277244};
   var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 19, center: casa});
+      document.getElementById('map'), {zoom: 17, center: casa});
   var marker = new google.maps.Marker({position: casa, map: map});
 }
 
