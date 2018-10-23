@@ -22,12 +22,85 @@
 	});
   }
   
+  initChart();
 })();
 
 function initMap() {
-  var casa = {lat: -19.8964431, lng: -43.9402232};
+  var casa = {lat: -19.8964784, lng: -43.9383671};
   var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 17, center: casa});
-  // The marker, positioned at Uluru
+      document.getElementById('map'), {zoom: 19, center: casa});
   var marker = new google.maps.Marker({position: casa, map: map});
+}
+
+function initChart(){
+var chart = AmCharts.makeChart("chartdiv", {
+  "type": "serial",
+  "theme": "light",
+  "marginRight": 70,
+  "dataProvider": [{
+    "competencia": "Java",
+    "nota": 9
+  }, {
+    "competencia": "JPA/Hibernate",
+    "nota": 9
+  },{
+    "competencia": "Testes (JUnit/Mockito/Cucumber)",
+    "nota": 8
+  },{
+    "competencia": "JavaScript/JQuery",
+    "nota": 8
+  },{
+    "competencia": "JSF",
+    "nota": 8
+  },{
+    "competencia": "Git",
+    "nota": 8
+  }, {
+    "competencia": "Maven",
+    "nota": 8
+  }, {
+    "competencia": "JPQL/SQL",
+    "nota": 7
+  },{
+    "competencia": "Jenkins/Sonar",
+    "nota": 7
+  }, {
+    "competencia": "HTML/CSS",
+    "nota": 7
+  },{
+    "competencia": "C#",
+    "nota": 6
+  },{
+    "competencia": "C++",
+    "nota": 5
+  }],
+  "valueAxes": [{
+    "axisAlpha": 0,
+    "position": "left",
+    "title": "Nível de competência"
+  }],
+  "startDuration": 1,
+  "graphs": [{
+    "balloonText": "<b>[[category]]: [[value]]</b>",
+    "fillColorsField": "color",
+    "fillAlphas": 0.9,
+    "lineAlpha": 0.2,
+    "type": "column",
+    "valueField": "nota"
+  }],
+  "chartCursor": {
+    "categoryBalloonEnabled": false,
+    "cursorAlpha": 0,
+    "zoomable": false
+  },
+  "categoryField": "competencia",
+  "categoryAxis": {
+    "gridPosition": "start",
+    "labelRotation": 45
+  },
+  "export": {
+    "enabled": true
+  }
+
+});
 }
