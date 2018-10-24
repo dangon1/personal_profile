@@ -23,7 +23,9 @@
   }
   
   adicionaSmooth();
-  initChart();
+  initChartFrontend();
+  initChartBackend();
+  initChartQualidade();
 })();
 
 $.ajax({
@@ -75,12 +77,109 @@ function adicionaSmooth(){
 	});	
 }
 
-function initChart(){
-	var chart = AmCharts.makeChart("chartdiv", {
+function initChartFrontend(){
+	var chart = AmCharts.makeChart("chartdiv-frontend", {
 	  "type": "serial",
 	  "theme": "light",
 	  "marginRight": 70,
-	  "rotate": true,
+	  "dataProvider": [{
+		"competencia": "JSF",
+		"nota": 9
+	  },{
+		"competencia": "JavaScript",
+		"nota": 8
+	  },{
+		"competencia": "JQuery",
+		"nota": 8
+	  },{
+		"competencia": "HTML/CSS",
+		"nota": 7
+	  }],
+	  "valueAxes": [{
+		"axisAlpha": 0,
+		"position": "left",
+		"title": "Nível de competência"
+	  }],
+	  "startDuration": 1,
+	  "graphs": [{
+		"balloonText": "<b>[[category]]: [[value]]</b>",
+		"fillColorsField": "color",
+		"fillAlphas": 0.9,
+		"lineAlpha": 0.2,
+		"type": "column",
+		"valueField": "nota"
+	  }],
+	  "chartCursor": {
+		"categoryBalloonEnabled": false,
+		"cursorAlpha": 0,
+		"zoomable": false
+	  },
+	  "categoryField": "competencia",
+	  "categoryAxis": {
+		"gridPosition": "start",
+		"labelRotation": 45
+	  },
+	  "export": {
+		"enabled": true
+	  }
+
+	});
+}
+
+function initChartQualidade(){
+	var chart = AmCharts.makeChart("chartdiv-qualidade", {
+	  "type": "serial",
+	  "theme": "light",
+	  "marginRight": 70,
+	  "dataProvider": [{
+		"competencia": "Git",
+		"nota": 8
+	  }, {
+		"competencia": "Maven",
+		"nota": 8
+	  },{
+		"competencia": "Jenkins",
+		"nota": 7
+	  },{
+		"competencia": "Sonar",
+		"nota": 7
+	  }],
+	  "valueAxes": [{
+		"axisAlpha": 0,
+		"position": "left",
+		"title": "Nível de competência"
+	  }],
+	  "startDuration": 1,
+	  "graphs": [{
+		"balloonText": "<b>[[category]]: [[value]]</b>",
+		"fillColorsField": "color",
+		"fillAlphas": 0.9,
+		"lineAlpha": 0.2,
+		"type": "column",
+		"valueField": "nota"
+	  }],
+	  "chartCursor": {
+		"categoryBalloonEnabled": false,
+		"cursorAlpha": 0,
+		"zoomable": false
+	  },
+	  "categoryField": "competencia",
+	  "categoryAxis": {
+		"gridPosition": "start",
+		"labelRotation": 45
+	  },
+	  "export": {
+		"enabled": true
+	  }
+
+	});
+}
+
+function initChartBackend(){
+	var chart = AmCharts.makeChart("chartdiv-backend", {
+	  "type": "serial",
+	  "theme": "light",
+	  "marginRight": 70,
 	  "dataProvider": [{
 		"competencia": "Java",
 		"nota": 9
@@ -88,28 +187,16 @@ function initChart(){
 		"competencia": "JPA/Hibernate",
 		"nota": 9
 	  },{
-		"competencia": "Testes (JUnit/Mockito/Cucumber)",
+		"competencia": "JUnit",
 		"nota": 8
 	  },{
-		"competencia": "JavaScript/JQuery",
+		"competencia": "Mockito",
 		"nota": 8
 	  },{
-		"competencia": "JSF",
+		"competencia": "Cucumber",
 		"nota": 8
 	  },{
-		"competencia": "Git",
-		"nota": 8
-	  }, {
-		"competencia": "Maven",
-		"nota": 8
-	  }, {
 		"competencia": "JPQL/SQL",
-		"nota": 7
-	  },{
-		"competencia": "Jenkins/Sonar",
-		"nota": 7
-	  }, {
-		"competencia": "HTML/CSS",
 		"nota": 7
 	  },{
 		"competencia": "C#",

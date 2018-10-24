@@ -1068,7 +1068,17 @@ header {
         width: 100%;  /* The width is the width of the web page */
        }
 	   
-	#chartdiv {
+	#chartdiv-frontend {
+	  width: 100%;
+	  height: 500px;
+	}
+	
+	#chartdiv-backend {
+	  width: 100%;
+	  height: 500px;
+	}
+	
+	#chartdiv-qualidade {
 	  width: 100%;
 	  height: 500px;
 	}
