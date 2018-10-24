@@ -50,7 +50,7 @@ $.ajax({
 	} else{
 		msgTemp = 'Está muito calor, vamos tomar um açaí gelado?';
 	}
-	document.getElementById('msg-fixa-temp').innerText = 'Hoje a temperatura é de: ' + temperatura + 'ºC e ' + resposta.weather[0].description;
+	document.getElementById('msg-fixa-temp').innerText = 'Hoje a temperatura é de ' + temperatura + 'ºC e ' + resposta.weather[0].description + '.';
 	document.getElementById('msg-temp').innerText = msgTemp;
 	document.getElementById('msg-clima').innerText = ' '+ msgClima;
   }
