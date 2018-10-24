@@ -23,9 +23,38 @@
   }
   
   adicionaSmooth();
-  
   initChart();
 })();
+
+$.ajax({
+  url: 'https://api.openweathermap.org/data/2.5/weather?id=6321162&lang=pt&units=metric&appid=4c8d6e3b37e4f240b0f5036d33e48c8e',
+  dataType: 'json',
+  success: function(resposta) {
+	situacao_tempo = resposta.weather[0].main;
+	temperatura = resposta.main.temp;
+	
+	msgClima = "";
+	if(situacao_tempo.includes('rain')){
+		msgClima = 'Traga seu guarda-chuva pois está chovendo!';
+	}else if (situacao_tempo.includes('cloud')){
+		msgClima = 'Traga seu guarda-chuva pois pode chover!';
+	} else if (situacao_tempo.includes('Clear')){
+		msgClima = 'Aproveite que hoje o céu está sem nuvens!';
+	}
+	
+	msgTemp="";
+	if(temperatura<15){
+		msgTemp = 'Hoje está frio. Vamos tomar um café quente? ';
+	} else if (temperatura>=15 && temperatura <= 25){
+		msgTemp = 'O clima está ameno. Vamos tomar um suco? ';
+	} else{
+		msgTemp = 'Está muito calor, vamos tomar um açaí gelado?';
+	}
+	document.getElementById('msg-fixa-temp').innerText = 'Hoje a temperatura é de: ' + temperatura + 'ºC e ' + resposta.weather[0].description;
+	document.getElementById('msg-temp').innerText = msgTemp;
+	document.getElementById('msg-clima').innerText = ' '+ msgClima;
+  }
+});
 
 function initMap() {
   var casa = {lat: -19.8745702, lng: -43.9277244};
@@ -51,6 +80,7 @@ function initChart(){
 	  "type": "serial",
 	  "theme": "light",
 	  "marginRight": 70,
+	  "rotate": true,
 	  "dataProvider": [{
 		"competencia": "Java",
 		"nota": 9
