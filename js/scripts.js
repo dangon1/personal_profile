@@ -51,7 +51,7 @@ $.ajax({
 	} else if (temperatura>=15 && temperatura <= 25){
 		msgTemp = 'The weather is mild. Want to drink a juice? ';
 	} else{
-		msgTemp = 'Its a hot day, lets have an ice cream?';
+		msgTemp = 'It\'s a hot day, lets have an ice cream?';
 	}
 	document.getElementById('msg-fixa-temp').innerText = 'Today the temperature here is ' + temperatura + 'ºC and ' + resposta.weather[0].description + '.';
 	document.getElementById('msg-temp').innerText = msgTemp;
