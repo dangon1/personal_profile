@@ -24,6 +24,7 @@
   
   adicionaSmooth();
   initChartFrontend();
+  initChartDatabases();
   initChartBackend();
   initChartQualidade();
 })();
@@ -50,7 +51,7 @@ $.ajax({
 	} else if (temperatura>=15 && temperatura <= 25){
 		msgTemp = 'The weather is mild. Want to drink a juice? ';
 	} else{
-		msgTemp = 'Its a hot day, lets have an icecream?';
+		msgTemp = 'Its a hot day, lets have an ice cream?';
 	}
 	document.getElementById('msg-fixa-temp').innerText = 'Today the temperature here is ' + temperatura + 'ºC and ' + resposta.weather[0].description + '.';
 	document.getElementById('msg-temp').innerText = msgTemp;
@@ -101,7 +102,7 @@ function initChartFrontend(){
 	  "valueAxes": [{
 		"axisAlpha": 0,
 		"position": "left",
-		"title": "Nível de competência",
+		"title": "Competency level",
 		"minimum":0,
 		"maximum":10
 	  }],
@@ -127,7 +128,56 @@ function initChartFrontend(){
 	  "export": {
 		"enabled": true
 	  }
+	});
+}
 
+function initChartDatabases(){
+	var chart = AmCharts.makeChart("chartdiv-databases", {
+	  "type": "serial",
+	  "theme": "light",
+	  "marginRight": 70,
+	  "dataProvider": [{
+		"competencia": "Oracle",
+		"nota": 9
+	  },{
+		"competencia": "DB2",
+		"nota": 8
+	  },{
+		"competencia": "Postgres",
+		"nota": 6
+	  },{
+		"competencia": "MySql",
+		"nota": 5
+	  }],
+	  "valueAxes": [{
+		"axisAlpha": 0,
+		"position": "left",
+		"title": "Competency level",
+		"minimum":0,
+		"maximum":10
+	  }],
+	  "startDuration": 1,
+	  "graphs": [{
+		"balloonText": "<b>[[category]]: [[value]]</b>",
+		"fillColorsField": "color",
+		"fillAlphas": 0.9,
+		"lineAlpha": 0.2,
+		"type": "column",
+		"valueField": "nota"
+	  }],
+	  "chartCursor": {
+		"categoryBalloonEnabled": false,
+		"cursorAlpha": 0,
+		"zoomable": false
+	  },
+	  "categoryField": "competencia",
+	  "categoryAxis": {
+		"gridPosition": "start",
+		"labelRotation": 45
+	  },
+	  "export": {
+		"enabled": true
+	  }
 	});
 }
 
@@ -152,7 +202,7 @@ function initChartQualidade(){
 	  "valueAxes": [{
 		"axisAlpha": 0,
 		"position": "left",
-		"title": "Nível de competência",
+		"title": "Competency level",
 		"minimum":0,
 		"maximum":10
 	  }],
@@ -197,6 +247,9 @@ function initChartBackend(){
 		"competencia": "Spring",
 		"nota": 7
 	  },{
+		"competencia": "XML",
+		"nota": 9
+	  },{
 		"competencia": "JUnit",
 		"nota": 8
 	  },{
@@ -215,7 +268,7 @@ function initChartBackend(){
 	  "valueAxes": [{
 		"axisAlpha": 0,
 		"position": "left",
-		"title": "Nível de competência",
+		"title": "Competency level",
 		"minimum":0,
 		"maximum":10
 	  }],
