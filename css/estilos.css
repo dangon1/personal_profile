@@ -631,6 +631,7 @@ header {
 			top: 2em;
 			margin: -4em 0 4em -4em;
 			width: auto;
+			max-height: 550px;
 		}
 
 /* Icones */
