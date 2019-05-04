@@ -461,27 +461,7 @@ header {
 			z-index: 1;
 			
 		}
-		.image.destacado:hover {
-			z-index:999 !important;
-			overflow: outside !important;
-		}
-			.image.destacado:hover img {
-			  -webkit-transform: scale(1.25);
-			  /* Safari and Chrome */
-			  -moz-transform: scale(1.25);
-			  /* Firefox */
-			  -ms-transform: scale(1.25);
-			  /* IE 9 */
-			  -o-transform: scale(1.25);
-			  /* Opera */
-			  transform: scale(1.25);
-			  
-			  transition: .2s ease-in-out;
-			  
-			  transition-delay: .5s;
-			}
-		
-		
+			
 
 /* Botões */
 

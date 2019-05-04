@@ -29,7 +29,7 @@
 })();
 
 $.ajax({
-  url: 'https://api.openweathermap.org/data/2.5/weather?id=6321162&lang=pt&units=metric&appid=4c8d6e3b37e4f240b0f5036d33e48c8e',
+  url: 'https://api.openweathermap.org/data/2.5/weather?id=6321162&lang=en&units=metric&appid=4c8d6e3b37e4f240b0f5036d33e48c8e',
   dataType: 'json',
   success: function(resposta) {
 	situacao_tempo = resposta.weather[0].main;
@@ -37,22 +37,22 @@ $.ajax({
 	
 	msgClima = "";
 	if(situacao_tempo.includes('rain')){
-		msgClima = 'Traga seu guarda-chuva pois está chovendo!';
+		msgClima = 'Bring your umbrella, it\'s raining!';
 	}else if (situacao_tempo.includes('cloud')){
-		msgClima = 'Traga seu guarda-chuva pois pode chover!';
+		msgClima = 'Bring your umbrella, it shall rain.';
 	} else if (situacao_tempo.includes('Clear')){
-		msgClima = 'Aproveite que hoje o céu está sem nuvens!';
+		msgClima = 'Enjoy, the day here has no clouds!';
 	}
 	
 	msgTemp="";
 	if(temperatura<15){
-		msgTemp = 'Hoje está frio. Vamos tomar um café quente? ';
+		msgTemp = 'Today is cold, lets have a hot coffee?';
 	} else if (temperatura>=15 && temperatura <= 25){
-		msgTemp = 'O clima está ameno. Vamos tomar um suco? ';
+		msgTemp = 'The weather is mild. Want to drink a juice? ';
 	} else{
-		msgTemp = 'Está muito calor, vamos tomar um açaí gelado?';
+		msgTemp = 'Its a hot day, lets have an icecream?';
 	}
-	document.getElementById('msg-fixa-temp').innerText = 'Hoje a temperatura é de ' + temperatura + 'ºC e ' + resposta.weather[0].description + '.';
+	document.getElementById('msg-fixa-temp').innerText = 'Today the temperature here is ' + temperatura + 'ºC and ' + resposta.weather[0].description + '.';
 	document.getElementById('msg-temp').innerText = msgTemp;
 	document.getElementById('msg-clima').innerText = ' '+ msgClima;
   }
@@ -86,11 +86,14 @@ function initChartFrontend(){
 		"competencia": "JSF",
 		"nota": 9
 	  },{
+		"competencia": "Angular",
+		"nota": 7
+	  },{
 		"competencia": "JavaScript",
-		"nota": 8
+		"nota": 9
 	  },{
 		"competencia": "JQuery",
-		"nota": 8
+		"nota": 9
 	  },{
 		"competencia": "HTML/CSS",
 		"nota": 7
@@ -98,7 +101,9 @@ function initChartFrontend(){
 	  "valueAxes": [{
 		"axisAlpha": 0,
 		"position": "left",
-		"title": "Nível de competência"
+		"title": "Nível de competência",
+		"minimum":0,
+		"maximum":10
 	  }],
 	  "startDuration": 1,
 	  "graphs": [{
@@ -139,7 +144,7 @@ function initChartQualidade(){
 		"nota": 8
 	  },{
 		"competencia": "Jenkins",
-		"nota": 7
+		"nota": 6
 	  },{
 		"competencia": "Sonar",
 		"nota": 7
@@ -147,7 +152,9 @@ function initChartQualidade(){
 	  "valueAxes": [{
 		"axisAlpha": 0,
 		"position": "left",
-		"title": "Nível de competência"
+		"title": "Nível de competência",
+		"minimum":0,
+		"maximum":10
 	  }],
 	  "startDuration": 1,
 	  "graphs": [{
@@ -187,6 +194,9 @@ function initChartBackend(){
 		"competencia": "JPA/Hibernate",
 		"nota": 9
 	  },{
+		"competencia": "Spring",
+		"nota": 7
+	  },{
 		"competencia": "JUnit",
 		"nota": 8
 	  },{
@@ -197,18 +207,17 @@ function initChartBackend(){
 		"nota": 8
 	  },{
 		"competencia": "JPQL/SQL",
-		"nota": 7
+		"nota": 8
 	  },{
 		"competencia": "C#",
-		"nota": 6
-	  },{
-		"competencia": "C++",
 		"nota": 5
 	  }],
 	  "valueAxes": [{
 		"axisAlpha": 0,
 		"position": "left",
-		"title": "Nível de competência"
+		"title": "Nível de competência",
+		"minimum":0,
+		"maximum":10
 	  }],
 	  "startDuration": 1,
 	  "graphs": [{
