@@ -24,7 +24,6 @@
   
   adicionaSmooth();
   initChartFrontend();
-  initChartDatabases();
   initChartBackend();
   initChartQualidade();
 })();
@@ -98,56 +97,6 @@ function initChartFrontend(){
 	  },{
 		"competencia": "HTML/CSS",
 		"nota": 7
-	  }],
-	  "valueAxes": [{
-		"axisAlpha": 0,
-		"position": "left",
-		"title": "Competency level",
-		"minimum":0,
-		"maximum":10
-	  }],
-	  "startDuration": 1,
-	  "graphs": [{
-		"balloonText": "<b>[[category]]: [[value]]</b>",
-		"fillColorsField": "color",
-		"fillAlphas": 0.9,
-		"lineAlpha": 0.2,
-		"type": "column",
-		"valueField": "nota"
-	  }],
-	  "chartCursor": {
-		"categoryBalloonEnabled": false,
-		"cursorAlpha": 0,
-		"zoomable": false
-	  },
-	  "categoryField": "competencia",
-	  "categoryAxis": {
-		"gridPosition": "start",
-		"labelRotation": 45
-	  },
-	  "export": {
-		"enabled": true
-	  }
-	});
-}
-
-function initChartDatabases(){
-	var chart = AmCharts.makeChart("chartdiv-databases", {
-	  "type": "serial",
-	  "theme": "light",
-	  "marginRight": 70,
-	  "dataProvider": [{
-		"competencia": "Oracle",
-		"nota": 9
-	  },{
-		"competencia": "DB2",
-		"nota": 8
-	  },{
-		"competencia": "Postgres",
-		"nota": 6
-	  },{
-		"competencia": "MySql",
-		"nota": 5
 	  }],
 	  "valueAxes": [{
 		"axisAlpha": 0,
